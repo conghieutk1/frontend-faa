@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import * as actions from "../../store/actions";
-import Navigator from "../../components/Navigator";
-import { adminMenu, doctorMenu } from "./menuApp";
-import "./Header.scss";
-import { LANGUAGES, USER_ROLE } from "../../utils/constant";
-import { FormattedMessage } from "react-intl";
-import _ from "lodash";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../store/actions';
+import Navigator from '../../components/Navigator';
+import { adminMenu, doctorMenu } from './menuApp';
+import './Header.scss';
+import { LANGUAGES, USER_ROLE } from '../../utils/constant';
+import { FormattedMessage } from 'react-intl';
+import _ from 'lodash';
 
 class Header extends Component {
     constructor(props) {
@@ -65,17 +65,11 @@ class Header extends Component {
                     <Navigator menus={this.state.menuApp} />
                 </div>
                 <div className="languages">
-                    <span className="welcome">
-                        <FormattedMessage id="homeheader.welcome" />
-                        {userInfo && userInfo.firstName
-                            ? userInfo.firstName
-                            : ""}
-                    </span>
                     <span
                         className={
                             language === LANGUAGES.VI
-                                ? "language-vi active"
-                                : "language-vi"
+                                ? 'language-vi active'
+                                : 'language-vi'
                         }
                         onClick={() => this.handleChangeLangauge(LANGUAGES.VI)}
                     >
@@ -84,8 +78,8 @@ class Header extends Component {
                     <span
                         className={
                             language === LANGUAGES.EN
-                                ? "language-en active"
-                                : "language-en"
+                                ? 'language-en active'
+                                : 'language-en'
                         }
                         onClick={() => this.handleChangeLangauge(LANGUAGES.EN)}
                     >

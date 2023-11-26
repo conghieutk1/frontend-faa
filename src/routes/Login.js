@@ -1,16 +1,16 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { push } from "connected-react-router";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { push } from 'connected-react-router';
 
-import * as actions from "../store/actions";
-import { KeyCodeUtils, LanguageUtils } from "../utils";
+import * as actions from '../store/actions';
+import { KeyCodeUtils, LanguageUtils } from '../utils';
 
-import userIcon from "../../src/assets/images/user.svg";
-import passIcon from "../../src/assets/images/pass.svg";
-import "./Login.scss";
-import { FormattedMessage } from "react-intl";
+import userIcon from '../../src/assets/images/user.svg';
+import passIcon from '../../src/assets/images/pass.svg';
+import './Login.scss';
+import { FormattedMessage } from 'react-intl';
 
-import adminService from "../services/adminService";
+import adminService from '../services/adminService';
 
 class Login extends Component {
     constructor(props) {
@@ -19,9 +19,9 @@ class Login extends Component {
     }
 
     initialState = {
-        username: "",
-        password: "",
-        loginError: "",
+        username: '',
+        password: '',
+        loginError: '',
     };
 
     state = {
@@ -44,7 +44,7 @@ class Login extends Component {
 
     redirectToSystemPage = () => {
         const { navigate } = this.props;
-        const redirectPath = "/system/user-manage";
+        const redirectPath = '/system/dashboard';
         navigate(`${redirectPath}`);
     };
 
@@ -53,15 +53,15 @@ class Login extends Component {
 
         const { adminLoginSuccess, adminLoginFail } = this.props;
         let loginBody = {
-            username: "admin",
-            password: "123456",
+            username: 'admin',
+            password: '123456',
         };
         //sucess
         let adminInfo = {
-            tlid: "0",
-            tlfullname: "Administrator",
-            custype: "A",
-            accessToken: "eyJhbGciOiJIU",
+            tlid: '0',
+            tlfullname: 'Administrator',
+            custype: 'A',
+            accessToken: 'eyJhbGciOiJIU',
         };
 
         adminLoginSuccess(adminInfo);
@@ -70,7 +70,7 @@ class Login extends Component {
         try {
             adminService.login(loginBody);
         } catch (e) {
-            console.log("error login : ", e);
+            console.log('error login : ', e);
         }
     };
 
@@ -85,11 +85,11 @@ class Login extends Component {
     };
 
     componentDidMount() {
-        document.addEventListener("keydown", this.handlerKeyDown);
+        document.addEventListener('keydown', this.handlerKeyDown);
     }
 
     componentWillUnmount() {
-        document.removeEventListener("keydown", this.handlerKeyDown);
+        document.removeEventListener('keydown', this.handlerKeyDown);
         // fix Warning: Can't perform a React state update on an unmounted component
         this.setState = (state, callback) => {
             return;
@@ -111,7 +111,7 @@ class Login extends Component {
                             <img className="icon" src={userIcon} alt="this" />
                             <input
                                 placeholder={LanguageUtils.getMessageByKey(
-                                    "login.username",
+                                    'login.username',
                                     lang
                                 )}
                                 id="username"
@@ -130,7 +130,7 @@ class Login extends Component {
                             <img className="icon" src={passIcon} alt="this" />
                             <input
                                 placeholder={LanguageUtils.getMessageByKey(
-                                    "login.password",
+                                    'login.password',
                                     lang
                                 )}
                                 id="password"
@@ -142,7 +142,7 @@ class Login extends Component {
                             />
                         </div>
 
-                        {loginError !== "" && (
+                        {loginError !== '' && (
                             <div className="login-error">
                                 <span className="login-error-message">
                                     {loginError}
@@ -157,7 +157,7 @@ class Login extends Component {
                                 type="submit"
                                 className="btn"
                                 value={LanguageUtils.getMessageByKey(
-                                    "login.login",
+                                    'login.login',
                                     lang
                                 )}
                                 onClick={this.processLogin}

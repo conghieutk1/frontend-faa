@@ -26,6 +26,10 @@
     },
     "menu": {
         "admin": {
+            "menu": "Menu",
+            "dashboard": "Trang chủ",
+            "views": "Xem",
+            "manage-events": "Quản lý sự kiện",
             "user": "Người dùng",
             "manage-doctor": "Quản lý bác sĩ",
             "manage-admin": "Quản lý admin",
