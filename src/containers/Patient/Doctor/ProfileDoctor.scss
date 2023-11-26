@@ -1,0 +1,36 @@
+.intro-doctor {
+    // display: flex;
+
+    .content-right {
+        width: 100%;
+        //border: 1px solid gray;
+        display: flex;
+        flex-direction: column;
+        padding-left: 3px;
+        .up {
+            //padding-top: 5px;
+            font-size: 20px;
+            font-weight: 600;
+            color: #337ab7;
+        }
+        .down {
+            text-align: justify;
+            padding-right: 10px;
+            display: flex;
+            //gap: 100px;
+            .right {
+                padding-left: 14px;
+            }
+        }
+    }
+}
+.price {
+    margin-top: 3px;
+    display: flex;
+    .fee {
+        font-weight: 700;
+    }
+    .currency {
+        margin-left: 3px;
+    }
+}

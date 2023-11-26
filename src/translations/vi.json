@@ -1,0 +1,163 @@
+{
+    "homeheader": {
+        "speciality": "Chuyên khoa",
+        "searchdoctor": "Tìm bác sĩ theo chuyên khoa",
+        "health-facility": "Cơ sở y tế",
+        "select-room": "Chọn bệnh viện phòng khám",
+        "doctor": "Bác sĩ",
+        "select-doctor": "Chọn bác sĩ giỏi",
+        "fee": "Gói khám",
+        "check-health": "Khám sức khỏe tổng quát",
+        "support": "Hỗ trợ",
+        "welcome": "Xin chào, "
+    },
+    "banner": {
+        "title1": "NỀN TẢNG Y TẾ",
+        "title2": "CHĂM SÓC SỨC KHỎE TOÀN DIỆN",
+        "child1": "Khám chuyên khoa",
+        "child2": "Khám từ xa",
+        "child3": "Khám tổng quát",
+        "child4": "Xét nghiệm y học",
+        "child5": "Sức khỏe tinh thần",
+        "child6": "Khám nha khoa",
+        "child7": "Gói phẫu thuật",
+        "child8": "Sản phẩm y tế",
+        "child9": "Bài test sức khỏe"
+    },
+    "menu": {
+        "admin": {
+            "user": "Người dùng",
+            "manage-doctor": "Quản lý bác sĩ",
+            "manage-admin": "Quản lý admin",
+            "crud": "CRUD người dùng",
+            "crud-redux": "CRUD Redux",
+            "clinic": "Phòng khám",
+            "manage-clinic": "Quản lý phòng khám",
+            "specialty": "Chuyên khoa",
+            "manage-specialty": "Quản lý chuyên khoa",
+            "handbook": "Cẩm nang",
+            "manage-handbook": "Quản lý cẩm nang"
+        },
+        "doctor": {
+            "manage-schedule": "Quản lý kế hoạch khám bệnh",
+            "manage-booking": "Quản lý lịch hẹn khám bệnh"
+        }
+    },
+    "manage-user": {
+        "add": "Thêm mới người dùng",
+        "email": "Email",
+        "password": "Mật khẩu",
+        "firstname": "Tên",
+        "lastname": "Họ",
+        "phonenumber": "Số điện thoại",
+        "address": "Địa chỉ",
+        "gender": "Giới tính",
+        "role": "Vai trò",
+        "position": "Chức danh",
+        "image": "Ảnh đại diện",
+        "save": "Lưu",
+        "edit": "Lưu thay đổi"
+    },
+    "homepage": {
+        "outstanding-doctor": "Bác sĩ nổi bật tuần qua",
+        "moreinfo": "Xem thêm",
+        "handbook": "Cẩm nang",
+        "allposts": "Tất cả bài viết",
+        "outstanding-medical-facility": "Cơ sở y tế nổi bật",
+        "popular-specialties": "Chuyên khoa phổ biến",
+        "describe": "Truyền thông nói gì về BookingCare?",
+        "describe-info": "Chào mừng đến với trang web đặt lịch khám online của chúng tôi! Chúng tôi cung cấp dịch vụ đặt lịch khám trực tuyến nhanh chóng, tiện lợi và dễ dàng. Với trải nghiệm đặt lịch khám trực tuyến của chúng tôi, bạn có thể đặt lịch khám bất kỳ lúc nào, bất kỳ nơi đâu, từ thiết bị di động hoặc máy tính để bàn. Không cần phải xếp hàng đợi chờ, bạn có thể lựa chọn bác sĩ và thời gian khám một cách nhanh chóng và dễ dàng chỉ trong vài cú nhấp chuột. Đồng thời, bạn cũng có thể xem thông tin bác sĩ, phòng khám, các dịch vụ khám bệnh và chi phí trước khi đặt lịch khám. Hãy để chúng tôi giúp bạn tiết kiệm thời gian và nâng cao chất lượng cuộc sống bằng cách sử dụng dịch vụ đặt lịch khám trực tuyến của chúng tôi ngay hôm nay!"
+    },
+    "interface": {
+        "btn-save": "Lưu thông tin",
+        "btn-create-user": "Thêm mới người dùng",
+        "title-manage-user": "Quản lý người dùng",
+        "title-user-redux": "Quản lý người dùng bằng REDUX",
+        "actions": "Thao tác",
+        "infor-user": {
+            "firstName": "Tên",
+            "lastName": "Họ",
+            "address": "Địa chỉ",
+            "gender": "Giới tính",
+            "roleId": "Vị trí",
+            "phonenumber": "Số điện thoại",
+            "positionId": "Chức danh"
+        },
+        "manage-doctor": {
+            "title-manage-doctor": "Quản lý bác sĩ",
+            "infor-intro": "Thông tin giới thiệu",
+            "price": "Giá khám bệnh",
+            "payment": "Phương thức thanh toán",
+            "province": "Tỉnh thành",
+            "nameClinic": "Tên phòng khám",
+            "addressClinic": "Địa chỉ phòng khám",
+            "note": "Ghi chú",
+            "choose-doctor": "Chọn bác sĩ",
+            "choose-price": "Chọn giá khám bệnh",
+            "choose-payment": "Chọn phương thức thanh toán",
+            "choose-province": "Chọn tỉnh thành"
+        }
+    },
+    "manage-schedule": {
+        "title": "Quản lý kế hoạch khám bệnh của bác sĩ",
+        "choose-doctor": "Chọn bác sĩ",
+        "choose-date": "Chọn ngày"
+    },
+    "manage-booking": {
+        "title": "Quản lý lịch hẹn khám bệnh",
+        "email": "Email",
+        "name": "Bệnh nhân",
+        "dob": "Ngày sinh",
+        "phonenumber": "Số điện thoại",
+        "address": "Địa chỉ",
+        "gender": "Giới tính",
+        "time": "Thời gian",
+        "reason": "Lý do khám",
+        "doctorName": "Bác sĩ",
+        "date": "Ngày khám",
+        "actions": "Thao tác",
+        "addressClinic": "Địa chỉ phòng khám",
+        "none-appointment": "Không có lịch khám bệnh trong thời gian này",
+        "status": "Trạng thái"
+    },
+    "patient": {
+        "detail-doctor": {
+            "schedule": "Lịch khám",
+            "no-schedule": "Bác sĩ không có lịch hẹn trong thời gian này, vui lòng chọn thời gian khác",
+            "choose": "Chọn ",
+            "book-free": " và đặt (miễn phí)"
+        },
+        "extra-infor": {
+            "text-title-mini": "Địa chỉ khám",
+            "show-more": "Xem chi tiết",
+            "price": "Giá khám",
+            "text-payment": "Phòng khám có thanh toán bằng hình thức: ",
+            "hide": "Ẩn chi tiết"
+        },
+        "modal-booking": {
+            "title": "Thông tin đặt lịch khám bệnh",
+            "name": "Họ và tên",
+            "email": "Email",
+            "address": "Địa chỉ liên hệ",
+            "gender": "Giới tính",
+            "dob": "Ngày sinh",
+            "phonenumber": "Số điện thoại",
+            "reason": "Lý do khám",
+            "btn-confirm": "Xác nhận",
+            "btn-cancel": "Hủy",
+            "time": "Thời gian:",
+            "free-booking": "Miễn phí đặt lịch"
+        },
+        "modal-moreinfo-patient": {
+            "title": "Thông tin bệnh nhân đặt lịch khám",
+            "name": "Họ và tên",
+            "email": "Email",
+            "address": "Địa chỉ liên hệ",
+            "gender": "Giới tính",
+            "dob": "Ngày sinh",
+            "phonenumber": "Số điện thoại",
+            "reason": "Lý do khám",
+            "btn-cancel": "Đóng"
+        }
+    }
+}

@@ -1,0 +1,479 @@
+.slick-prev {
+    border: 2px solid #d7d7d7 !important;
+    left: -25px !important;
+    z-index: 1000 !important;
+    height: 48px !important;
+    width: 44px !important;
+    background: #fff !important;
+    &:hover {
+        background: #eceaea !important;
+    }
+}
+.slick-prev::before,
+.slick-next::before {
+    // content: "\e257" !important;
+    color: #d7d7d7 !important;
+    font-family: FontAwesome !important;
+}
+
+.slick-next {
+    border: 2px solid #d7d7d7 !important;
+    right: -10px !important;
+    z-index: 1000 !important;
+    height: 48px !important;
+    width: 44px !important;
+    background: #fff !important;
+    &:hover {
+        background: #eceaea !important;
+    }
+}
+.slick-disabled {
+    display: none !important;
+}
+.section-share {
+    &.section-specialty {
+        background: white;
+        .section-body {
+            cursor: pointer;
+
+            //border: 1px solid grey;
+            .section-customize {
+                .text-img {
+                    font-size: 15px;
+                    margin-top: 10px;
+                    &:hover {
+                        color: #819cb1;
+                    }
+                }
+                .bg-img1 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/specialty/co-xuong-khop.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img2 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/specialty/chuyen-khoa-mat.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img3 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/specialty/y-hoc-co-truyen.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img4 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/specialty/kham-tong-quat.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img5 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/specialty/tai-mui-hong.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img6 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/specialty/than-kinh.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img7 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/specialty/tim-mach.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img8 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/specialty/noi-khoa.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img9 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/specialty/da-lieu.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+            }
+        }
+    }
+    &.section-medical-facility {
+        background: #f5f5f5;
+        .section-body {
+            cursor: pointer;
+
+            //border: 1px solid grey;
+            .section-customize {
+                .text-img {
+                    font-size: 15px;
+                    margin-top: 10px;
+                    &:hover {
+                        color: #819cb1;
+                    }
+                }
+                .bg-img1 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/medical-facility/lo-go-viet-duc.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img2 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/medical-facility/logo-bvcr-moi.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img3 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/medical-facility/logobenhvien108.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img4 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/medical-facility/logo-diag.png");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img5 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/medical-facility/logo-phong-kham-da-khoa-quoc-te-exson1.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img6 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/medical-facility/logo-bv-y-hoc-co-truyen.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img7 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/medical-facility/mediteclogo.jpeg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img8 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/medical-facility/logo-bv-mat-dnd.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+            }
+        }
+    }
+    &.section-outstanding-doctor {
+        background: white;
+        .section-body {
+            cursor: pointer;
+
+            //border: 1px solid grey;
+            .section-customize {
+                .text-img {
+                    text-align: center;
+                    font-size: 15px;
+                    margin-top: 10px;
+                    &:hover {
+                        color: #819cb1;
+                    }
+                }
+                .bg-img1 {
+                    margin-left: 80px;
+                    border-radius: 50%;
+                    width: 150px;
+                    height: 150px;
+                    //background: url("../../assets/outstanding-doctor/smiling-asian-male-doctor-pointing-upwards.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img2 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/outstanding-doctor/smiling-asian-male-doctor-pointing-upwards.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img3 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/outstanding-doctor/smiling-asian-male-doctor-pointing-upwards.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img4 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/outstanding-doctor/smiling-asian-male-doctor-pointing-upwards.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img5 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/outstanding-doctor/smiling-asian-male-doctor-pointing-upwards.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img6 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/outstanding-doctor/smiling-asian-male-doctor-pointing-upwards.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img7 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/outstanding-doctor/smiling-asian-male-doctor-pointing-upwards.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img8 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/outstanding-doctor/smiling-asian-male-doctor-pointing-upwards.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+            }
+        }
+    }
+    &.section-handbook {
+        .slick-disabled {
+            display: none !important;
+        }
+        background: #f5f5f5;
+        .section-body {
+            cursor: pointer;
+
+            //border: 1px solid grey;
+            .section-customize {
+                .text-img {
+                    font-size: 15px;
+                    margin-top: 10px;
+                    &:hover {
+                        color: #819cb1;
+                    }
+                }
+                .bg-img1 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/medical-facility/lo-go-viet-duc.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img2 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/medical-facility/logo-bvcr-moi.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img3 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/medical-facility/logobenhvien108.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img4 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/medical-facility/logo-diag.png");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img5 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/medical-facility/logo-phong-kham-da-khoa-quoc-te-exson1.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img6 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/medical-facility/logo-bv-y-hoc-co-truyen.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img7 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/medical-facility/mediteclogo.jpeg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+                .bg-img8 {
+                    width: 300px;
+                    height: 168px;
+                    background: url("../../assets/medical-facility/logo-bv-mat-dnd.jpg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-color: #eee;
+                }
+            }
+        }
+    }
+
+    &.section-about {
+        border-bottom: 3px solid #f5f5f5;
+        height: 500px !important;
+        margin: 0 200px;
+        .section-about-header {
+            padding: 20px 10px;
+            font-size: 22px;
+            font-weight: 600;
+        }
+        .section-about-content {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            .content-left {
+                width: 60%;
+            }
+            .content-right {
+                width: 40%;
+                padding: 0px 30px;
+                text-align: justify;
+                font-style: italic;
+            }
+        }
+    }
+}
+
+.section-share {
+    height: 330px;
+
+    //border: 1px solid black;
+    .section-container {
+        margin: 0 220px;
+        display: flex;
+        flex-direction: column;
+        .section-header {
+            //border: 1px solid red;
+            height: 60px;
+            margin-bottom: 25px;
+            padding-top: 20px;
+            .title-section {
+                font-size: 22px;
+                font-weight: 600;
+            }
+            .button-section {
+                float: right;
+                padding: 10px 15px;
+                border: none;
+                outline: none;
+                display: block;
+                background: #ebebeb;
+                color: black;
+                text-transform: uppercase;
+                cursor: pointer;
+                &:hover {
+                    color: #fff;
+                    background: #f7d800;
+                }
+            }
+        }
+    }
+}
+
+.home-footer {
+    text-align: center;
+    padding-top: 8px;
+    // background-color: #49bce2;
+    a {
+        text-decoration: unset;
+        color: black;
+        &:hover {
+            color: #819cb1;
+        }
+    }
+}

@@ -1,0 +1,74 @@
+#ManageDoctor {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 50px;
+}
+
+#ManageDoctor td,
+#ManageDoctor th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#ManageDoctor tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#ManageDoctor tr:hover {
+    background-color: #ddd;
+}
+
+#ManageDoctor th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #0071ba;
+    color: white;
+}
+// .body-manage-doctor {
+//     margin: 0px 200px;
+// }
+// .system-list {
+//     margin: 0px 10px;
+// }
+
+.manage-doctor-container {
+    .save-content-doctor,
+    .create-content-doctor {
+        margin-top: 20px;
+        //margin-bottom: 30px;
+        border-radius: 3px;
+        outline: none;
+        border: none;
+        padding: 5px;
+        background: orange;
+        float: right;
+        width: 120px;
+        cursor: pointer;
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+    .save-content-doctor {
+        background: orange;
+    }
+    .create-content-doctor {
+        background: blue;
+        color: white;
+    }
+
+    .more-infor {
+        display: flex;
+        gap: 15px;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        .content-left {
+            width: 40%;
+        }
+
+        .content-right {
+            width: 60%;
+        }
+    }
+}

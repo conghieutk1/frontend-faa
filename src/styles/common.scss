@@ -1,0 +1,20 @@
+@import "variables";
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.text-red {
+    color: $common-red !important;
+}
+div._loading_overlay_wrapper {
+    position: unset;
+}
