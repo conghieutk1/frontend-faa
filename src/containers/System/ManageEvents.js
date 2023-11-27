@@ -15,7 +15,7 @@ class ManageEvents extends Component {
         // console.log("check state user ", this.state);
         // console.log("id ", this.state.arrUsers);
 
-        return <div>ManageEvents</div>;
+        return <div className="title">Manage Events</div>;
     }
 }
 

@@ -15,7 +15,11 @@ class Views extends Component {
         // console.log("check state user ", this.state);
         // console.log("id ", this.state.arrUsers);
 
-        return <div>Views</div>;
+        return (
+            
+                <div className="title">VIEWS</div>
+            
+        );
     }
 }
 

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import UserManage from '../containers/System/UserManage';
-import UserRedux from '../containers/System/Admin/UserRedux';
-import ManageDoctor from '../containers/System/Admin/ManageDoctor';
+
 import Header from '../containers/Header/Header';
 import DashBoard from '../containers/System/DashBoard';
 import Views from '../containers/System/Views';

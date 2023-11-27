@@ -15,7 +15,12 @@ class DashBoard extends Component {
         // console.log("check state user ", this.state);
         // console.log("id ", this.state.arrUsers);
 
-        return <div>DashBoard</div>;
+        return (
+            <div className="title">
+               FACTORY ABNORMAL ALARM
+                
+            </div>
+        );
     }
 }
 

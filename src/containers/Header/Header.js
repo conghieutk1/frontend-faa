@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions';
 import Navigator from '../../components/Navigator';
-import { adminMenu, doctorMenu } from './menuApp';
+import { adminMenu} from './menuApp';
 import './Header.scss';
-import { LANGUAGES, USER_ROLE } from '../../utils/constant';
+import { LANGUAGES } from '../../utils/constant';
 import { FormattedMessage } from 'react-intl';
 import _ from 'lodash';
 
@@ -21,20 +21,21 @@ class Header extends Component {
 
     componentDidMount() {
         //let userInfo = JSON.parse(localStorage.getItem("userInfo"));
-        let { userInfo } = this.props;
+        // let { userInfo } = this.props;
         //let userInfo = Cookies.get("userInfo");
         let menu = [];
         //console.log("check userInfo = ", this.props);
-        if (userInfo && !_.isEmpty(userInfo)) {
-            let role = userInfo.roleId;
-            if (role === USER_ROLE.ADMIN) {
-                menu = adminMenu;
-            } else if (role === USER_ROLE.DOCTOR) {
-                menu = doctorMenu;
-            }
-        } else {
-            menu = adminMenu;
-        }
+        // if (userInfo && !_.isEmpty(userInfo)) {
+        //     let role = userInfo.roleId;
+        //     if (role === USER_ROLE.ADMIN) {
+        //         menu = adminMenu;
+        //     } else if (role === USER_ROLE.DOCTOR) {
+        //         menu = doctorMenu;
+        //     }
+        // } else {
+        //     menu = adminMenu;
+        // }
+        menu = adminMenu;
         this.setState({
             menuApp: menu,
         });

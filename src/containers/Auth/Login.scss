@@ -111,6 +111,74 @@
     }
 }
 
+.modal-user-container {
+    .modal-content {
+        .modal-header {
+            button {
+                background-color: transparent !important;
+                color: white;
+                border: none;
+                font-size: 27px;
+            }
+        }
+    }
+
+    .modal-user-body {
+        display: flex;
+        gap: 15px;
+        .input-container-account {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            &.max-width-input {
+                width: 100%;
+            }
+            input {
+                border-radius: 3px;
+                border: 1px solid grey;
+                height: 30px;
+                outline: none;
+                padding: 0 10px;
+            }
+        }
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            &.max-width-input {
+                width: 100%;
+            }
+            input {
+                border-radius: 3px;
+                border: 1px solid grey;
+                height: 30px;
+                outline: none;
+                padding: 0 10px;
+            }
+            .role {
+                border-radius: 3px;
+                border: 1px solid grey;
+                height: 30px;
+                outline: none;
+                padding: 0 10px;
+            }
+            .gender {
+                border-radius: 3px;
+                border: 1px solid grey;
+                height: 30px;
+                outline: none;
+                padding: 0 10px;
+            }
+            .position {
+                border-radius: 3px;
+                border: 1px solid grey;
+                height: 30px;
+                outline: none;
+                padding: 0 10px;
+            }
+        }
+    }
+}
 // .login-background {
 //     height: 100vh;
 //     background: linear-gradient(90deg, #94719a, #3ac5c9);

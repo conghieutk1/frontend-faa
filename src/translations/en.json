@@ -27,9 +27,9 @@
     "menu": {
         "admin": {
             "menu": "Menu",
-            "dashboard": "Trang chủ",
-            "views": "Xem",
-            "manage-events": "Quản lý báo cáo",
+            "dashboard": "Dashboard",
+            "views": "Views",
+            "manage-events": "Manage events",
             "user": "User",
             "manage-doctor": "Manage doctor",
             "manage-admin": "Manage admin",
