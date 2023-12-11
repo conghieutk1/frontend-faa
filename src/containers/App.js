@@ -22,6 +22,7 @@ import CustomScrollbars from '../components/CustomScrollbars';
 // import DetailDoctor from './Patient/Doctor/DetailDoctor';
 // import Doctor from '../routes/Doctor';
 // import VerifyEmailBooking from './Patient/VerifyEmailBooking';
+// import XPMobileSDK from '../containers/XPMobileSDK/XPMobileSDK.js';
 
 class App extends Component {
     handlePersistorState = () => {

@@ -1,50 +1,11 @@
 {
-    "homeheader": {
-        "speciality": "Speciality",
-        "searchdoctor": "Search for doctors by speciality",
-        "health-facility": "Health facility",
-        "select-room": "Choose hospital clinic",
-        "doctor": "Doctor",
-        "select-doctor": "Choose a good doctor",
-        "fee": "Health checkup package",
-        "check-health": "General health checkup",
-        "support": "Support",
-        "welcome": "Welcome, "
-    },
-    "banner": {
-        "title1": "HEALTHCARE PLATFORM",
-        "title2": "COMPREHENSIVE HEALTHCARE",
-        "child1": "Specialty examination",
-        "child2": "Remote examination",
-        "child3": "General health examination",
-        "child4": "Medical testing",
-        "child5": "Mental health",
-        "child6": "Dental examination",
-        "child7": "Surgery package",
-        "child8": "Medical products",
-        "child9": "Health test"
-    },
     "menu": {
         "admin": {
             "menu": "Menu",
             "dashboard": "Dashboard",
             "views": "Views",
             "manage-events": "Manage events",
-            "user": "User",
-            "manage-doctor": "Manage doctor",
-            "manage-admin": "Manage admin",
-            "crud": "CRUD user",
-            "crud-redux": "CRUD Redux",
-            "clinic": "Clinic",
-            "manage-clinic": "Manage clinic",
-            "specialty": "Specialty",
-            "manage-specialty": "Manage specialty",
-            "handbook": "Handbook",
-            "manage-handbook": "Manage handbook"
-        },
-        "doctor": {
-            "manage-schedule": "Manage doctor schedule",
-            "manage-booking": "Manage booking appointment"
+            "user": "User"
         }
     },
     "manage-user": {
@@ -62,107 +23,8 @@
         "save": "Save",
         "edit": "Save change"
     },
-    "homepage": {
-        "outstanding-doctor": "Outstanding doctor",
-        "moreinfo": "More infomation",
-        "handbook": "Hand book",
-        "allposts": "All posts",
-        "outstanding-medical-facility": "Outstanding medical facility",
-        "popular-specialties": "Popular specialties",
-        "describe": "What the media say about BookingCare?",
-        "describe-info": "Welcome to our online appointment booking website! We offer fast, convenient, and easy online appointment booking services. With our online appointment booking experience, you can schedule appointments anytime, anywhere, from your mobile device or computer. No more waiting in queues, you can quickly and easily choose a doctor and appointment time with just a few clicks. Additionally, you can view information about doctors, clinics, medical services, and costs before booking an appointment. Let us help you save time and improve your quality of life by using our online appointment booking service today!"
-    },
     "interface": {
         "btn-save": "Save",
-        "btn-create-user": "Add new user",
-        "title-manage-user": "Manage users",
-        "title-user-redux": "Manage users by REDUX",
-
-        "actions": "Actions",
-        "infor-user": {
-            "firstName": "First name",
-            "lastName": "Last name",
-            "address": "Address",
-            "gender": "Gender",
-            "roleId": "Role",
-            "phonenumber": "Phone number",
-            "positionId": "Position"
-        },
-        "manage-doctor": {
-            "infor-intro": "Introduction information",
-            "title-manage-doctor": "Manage doctors",
-            "choose-doctor": "Choose doctor",
-            "price": "Consultation fee",
-            "payment": "Payment method",
-            "province": "Province",
-            "nameClinic": "Clinic name",
-            "addressClinic": "Clinic address",
-            "note": "Note",
-            "choose-price": "Choose consultation fee",
-            "choose-payment": "Choose payment method",
-            "choose-province": "Choose province"
-        }
-    },
-    "manage-schedule": {
-        "title": "Manage doctor's examination plan",
-        "choose-doctor": "Choose doctor",
-        "choose-date": "Choose date"
-    },
-    "manage-booking": {
-        "title": "Manage booking appointment",
-        "email": "Email",
-        "name": "Patient",
-        "dob": "Date of Birth",
-        "phonenumber": "Phone Number",
-        "address": "Address",
-        "gender": "Gender",
-        "time": "Time",
-        "reason": "Reason for Examination",
-        "doctorName": "Doctor",
-        "date": "Examination Date",
-        "actions": "Actions",
-        "addressClinic": "Clinic Address",
-        "none-appointment": "No medical appointments during this time",
-        "status": "Status"
-    },
-    "patient": {
-        "detail-doctor": {
-            "schedule": "Schedule",
-            "no-schedule": "The doctor has no appointments available during this time. Please select a different time slot",
-            "choose": "Choose ",
-            "book-free": " and book (free)"
-        },
-        "extra-infor": {
-            "text-title-mini": "Address",
-            "show-more": "Show more",
-            "price": "Consultation fee",
-            "text-payment": "The clinic offers payment methods: ",
-            "hide": "Hide"
-        },
-        "modal-booking": {
-            "title": "Appointment booking information",
-            "name": "Full name",
-            "email": "Email",
-            "address": "Address",
-            "gender": "Gender",
-            "dob": "Date of birth",
-            "phonenumber": "Phone number",
-            "reason": "Reason for examination",
-            "btn-confirm": "Confirm",
-            "btn-cancel": "Cancel",
-            "time": "Time:",
-            "free-booking": "Booking free"
-        },
-        "modal-moreinfo-patient": {
-            "title": "Patient information to book the appointment",
-            "name": "Full name",
-            "email": "Email",
-            "address": "Address",
-            "gender": "Gender",
-            "dob": "Date of birth",
-            "phonenumber": "Phone number",
-            "reason": "Reason for examination",
-            "btn-cancel": "Cancel"
-        }
+        "btn-create-user": "Add new user"
     }
 }
