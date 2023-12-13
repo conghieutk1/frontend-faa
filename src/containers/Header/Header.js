@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions';
 import Navigator from '../../components/Navigator';
-import { adminMenu} from './menuApp';
+import { adminMenu } from './menuApp';
 import './Header.scss';
 import { LANGUAGES } from '../../utils/constant';
-import { FormattedMessage } from 'react-intl';
+// import { FormattedMessage } from 'react-intl';
 import _ from 'lodash';
 
 class Header extends Component {
@@ -57,7 +57,7 @@ class Header extends Component {
         // Kiểm tra nếu userInfo đã thay đổi từ props trước đó
     }
     render() {
-        const { processLogout, language, userInfo } = this.props;
+        const { processLogout, language } = this.props;
 
         return (
             <div className="header-container">
@@ -67,31 +67,19 @@ class Header extends Component {
                 </div>
                 <div className="languages">
                     <span
-                        className={
-                            language === LANGUAGES.VI
-                                ? 'language-vi active'
-                                : 'language-vi'
-                        }
+                        className={language === LANGUAGES.VI ? 'language-vi active' : 'language-vi'}
                         onClick={() => this.handleChangeLangauge(LANGUAGES.VI)}
                     >
                         VN
                     </span>
                     <span
-                        className={
-                            language === LANGUAGES.EN
-                                ? 'language-en active'
-                                : 'language-en'
-                        }
+                        className={language === LANGUAGES.EN ? 'language-en active' : 'language-en'}
                         onClick={() => this.handleChangeLangauge(LANGUAGES.EN)}
                     >
                         EN
                     </span>
                     {/* nút logout */}
-                    <div
-                        className="btn btn-logout"
-                        onClick={processLogout}
-                        title="Log out"
-                    >
+                    <div className="btn btn-logout" onClick={processLogout} title="Log out">
                         <i className="fas fa-sign-out-alt"></i>
                     </div>
                 </div>
@@ -111,8 +99,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         processLogout: () => dispatch(actions.processLogout()),
-        changeLanguageAppRedux: (language) =>
-            dispatch(actions.changeLanguageApp(language)),
+        changeLanguageAppRedux: (language) => dispatch(actions.changeLanguageApp(language)),
     };
 };
 

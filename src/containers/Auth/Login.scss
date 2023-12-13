@@ -141,6 +141,21 @@
                 padding: 0 10px;
             }
         }
+        .input-container-server {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            &.max-width-input {
+                width: 100%;
+            }
+            input {
+                border-radius: 3px;
+                border: 1px solid grey;
+                height: 30px;
+                outline: none;
+                padding: 0 10px;
+            }
+        }
         .input-container {
             display: flex;
             flex-direction: column;

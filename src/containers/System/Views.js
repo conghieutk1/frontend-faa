@@ -1,96 +1,152 @@
-import React, { Component, useEffect } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Views.scss';
-import { Helmet } from 'react-helmet';
-// import * as XPMobileSDK from '../lib/XPMobileSDK.js';
-// import { XPMobileSDK, XPMobileSDKSettings } from '../../../public/lib/XPMobileSDK';
+import { disconnectVMS, loginVMSServer, getAllViews } from '../../helper/vms';
+import ModalConnectVMSServer from './Modal/ModalConnectVMSServer';
+import { emitter } from '../../utils/emitter';
+import { toast } from 'react-toastify';
+import { createListCameraFromServer } from '../../services/cameraService';
+import { LANGUAGES } from '../../utils/constant';
+let getViewsPromise = () => {
+    return new Promise((resolve, reject) => {
+        getAllViews(
+            (items) => {
+                resolve(items[0].Items[0].Items[0].Items);
+            },
+            () => {
+                reject('Error getAllViews');
+            },
+        );
+    });
+};
+
 class Views extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            lastObserver: {},
+            isOpenModalConnectVMSServer: false,
+            arrCameras: [],
+            dataServer: [],
+            userInfo: [],
         };
     }
-    // initializeXPMobileSDK() {
-    //     // Import tệp XPMobileSDK.js
-    //     import('%PUBLIC_URL%/lib/XPMobileSDK.js').then((XPMobileSDK) => {
-    //         // Gọi các hàm hoặc API từ thư viện
-    //         XPMobileSDK.someFunction();
-    //     });
-    // }
-    componentDidMount() {
-        // this.initializeXPMobileSDK();
-        // this.connectToServer('http://117.0.39.150:38081/');
-        // XPMobileSDK.connect('http://117.0.39.150:38081/');
+
+    componentDidMount() {}
+    componentWillUnmount() {
+        disconnectVMS();
     }
-    // connectionDidConnect = () => {
-    //     let username = 'test';
-    //     let password = 'Ars@1234';
-    //     let loginType = 'Basic'; // ActiveDirectory
-    //     this.login(username, password, loginType);
-    //     console.log('connectionDidConnect');
-    // };
-    // connectToServer = (serverName) => {
-    //     let url = serverName || window.location.origin;
+    // Thêm hàm mới để trả về một Promise từ getAllViews
 
-    //     if (!/^http/.test(url)) {
-    //         url = 'http://' + url;
-    //     }
+    getAllCameras = async () => {
+        try {
+            let arrCameras = await getViewsPromise();
+            this.setState({ arrCameras });
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    createCameraAndServer = async (data) => {
+        try {
+            let response = await createListCameraFromServer(data);
+            if (response && response.errCode !== 0) {
+                alert(response.errMessage);
+            } else {
+                toast.success('Create camera and server successfully');
+                // truyen data
+                // emitter.emit("EVENT_CLEAR_MODAL_DATA", {id : 'abc'});
+            }
+        } catch (e) {
+            console.log(e);
+        }
+    };
+    handleConnectVMSServer = async () => {
+        this.setState({
+            isOpenModalConnectVMSServer: true,
+        });
+    };
+    toggleUserModal = () => {
+        this.setState({
+            isOpenModalConnectVMSServer: !this.state.isOpenModalConnectVMSServer,
+        });
+    };
+    connectVMSServer = async (dataServer) => {
+        try {
+            // console.log('check data register: ', data);  '117.0.39.150:38081', 'test', 'Ars@1234',
 
-        // XPMobileSDKSettings.MobileServerURL = url;
+            // loginVMSServer(
+            //     dataServer.url,
+            //     dataServer.username,
+            //     dataServer.password,
+            //     async () => {
+            //         emitter.emit('EVENT_CLEAR_MODAL_DATA_CONNECT_VMS');
+            //         this.setState({
+            //             isOpenModalConnectVMSServer: false,
+            //         });
+            //         console.log('Connect VMS successfully');
+            //         toast.success('Connect VMS successfully');
+            //         this.setState({ dataServer, userInfo: this.props.userInfo });
+            //         await this.getAllCameras();
+            //         console.log('Check arrCameras2: ', this.state);
+            //         // createCameraAndServer(this.state);
+            //     },
+            //     () => {
+            //         console.log('Connect VMS failed');
+            //         alert('Connect VMS failed');
+            //     },
+            // );
 
-    //     if (this.lastObserver) {
-    //         XPMobileSDK.removeObserver(this.lastObserver);
-    //     }
+            loginVMSServer(
+                '117.0.39.150:38081',
+                'test',
+                'Ars@1234',
+                async () => {
+                    emitter.emit('EVENT_CLEAR_MODAL_DATA_CONNECT_VMS');
+                    this.setState({
+                        isOpenModalConnectVMSServer: false,
+                    });
+                    console.log('Connect VMS successfully');
+                    toast.success('Connect VMS successfully');
+                    this.setState({ dataServer, userInfo: this.props.userInfo });
+                    await this.getAllCameras();
+                    console.log('Check arrCameras2: ', this.state);
+                    await this.createCameraAndServer(this.state);
+                },
+                () => {
+                    console.log('Connect VMS failed');
+                    alert('Connect VMS failed');
+                },
+            );
+        } catch (e) {
+            console.log(e);
+        }
+    };
 
-    //     this.lastObserver = {
-    //         connectionDidConnect: this.connectionDidConnect,
-    //         connectionDidLogIn: () => {
-    //             console.log('connectionDidLogIn');
-    //         },
-    //         connectionFailedToLogIn: () => {
-    //             console.log('connectionFailedToLogIn');
-    //         },
-    //     };
-
-    //     XPMobileSDK.addObserver(this.lastObserver);
-
-    //     XPMobileSDK.connect(url);
-    // };
-
-    // login = (username, password, loginType) => {
-    //     XPMobileSDK.login(username, password, loginType, {
-    //         SupportsAudioIn: 'Yes',
-    //         SupportsAudioOut: 'Yes',
-    //     });
-    // };
-    // getAllCameras = () => {
-    //     XPMobileSDK.getAllViews(function (items) {
-    //         for (var i = 0; i < items[0].Items[0].Items[0].Items.length; i++) {
-    //             console.log(
-    //                 'Camera:',
-    //                 JSON.stringify(items[0].Items[0].Items[0].Items[i])
-    //             );
-    //         }
-    //     });
-    // };
-    
     render() {
-        // console.log("check state user ", this.state);
-        // console.log("id ", this.state.arrUsers);
-        
+        // const { userInfo } = this.props;
         return (
-            <>
+            <div className="views-container">
+                <ModalConnectVMSServer
+                    isOpen={this.state.isOpenModalConnectVMSServer}
+                    toggleFromParent={this.toggleUserModal}
+                    connectVMSServerFromParent={this.connectVMSServer}
+                />
                 <div className="title">VIEWS</div>
-                <button className='btn-getcamera' onClick={() => this.getAllCameras()}>OK</button>
-               
-            </>
+                <div className="mx-1">
+                    <button className="btn btn-primary px-3 connectVMS" onClick={() => this.handleConnectVMSServer()}>
+                        <i className="fas fa-plus px-2"></i>
+                        Connect VMS Server
+                    </button>
+                </div>
+            </div>
         );
     }
 }
 
 const mapStateToProps = (state) => {
-    return {};
+    return {
+        userInfo: state.user.userInfo,
+        language: state.app.language,
+    };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -98,4 +154,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Views);
-

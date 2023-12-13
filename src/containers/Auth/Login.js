@@ -119,11 +119,12 @@ class Login extends Component {
                 alert(response.errMessage);
             } else {
                 // await this.getAllUserFromReact();
+                emitter.emit('EVENT_CLEAR_MODAL_DATA');
                 this.setState({
                     isOpenModalCreateNewUser: false,
                 });
                 toast.success('Create user success');
-                emitter.emit('EVENT_CLEAR_MODAL_DATA');
+                
                 // truyen data
                 // emitter.emit("EVENT_CLEAR_MODAL_DATA", {id : 'abc'});
             }
@@ -203,14 +204,7 @@ class Login extends Component {
                                     Login
                                 </button>
                             </div>
-                            <div className="col-12">
-                                <button
-                                    className="btn-register"
-                                    onClick={() => this.handleRegister()}
-                                >
-                                    Register
-                                </button>
-                            </div>
+                            
                             <div className="col-12">
                                 <span className="forgot-password">
                                     Forgot your password?

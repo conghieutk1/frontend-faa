@@ -1,5 +1,3 @@
-import React, { Component, useEffect } from 'react';
-
 var XPMobileSDKSettings = {
         fileName: 'XPMobileSDK.js',
         clientType: 'WebClient',
@@ -635,25 +633,3 @@ var XPMobileSDKSettings = {
         },
     });
 //# sourceMappingURL=maps/XPMobileSDK.js.map
-
-
-const LibraryXPMobileSDK = () => {
-  useEffect(() => {
-      const script = document.createElement('script');
-
-      script.src = '../lib/XPMobileSDK';
-      script.async = true;
-
-      document.body.appendChild(script);
-
-      return () => {
-          document.body.removeChild(script);
-      };
-  }, []);
-  return (
-    <h1>aaa</h1>
-  )
-}
-
-export default LibraryXPMobileSDK;
-export { XPMobileSDKSettings, XPMobileSDK };

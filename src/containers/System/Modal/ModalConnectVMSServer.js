@@ -5,29 +5,31 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { emitter } from '../../../utils/emitter';
 
-class ModalCreateNewUser extends Component {
+class ModalConnectVMSServer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            account: '',
+            server: '',
+            username: '',
             password: '',
-            confirmPassword: '',
         };
         this.listenToEmitter();
     }
 
     componentDidMount() {}
-
+    componentWillUnmount() {
+        this.setState({});
+    }
     toggle = () => {
         this.props.toggleFromParent();
     };
 
     listenToEmitter() {
-        emitter.on('EVENT_CLEAR_MODAL_DATA', () => {
+        emitter.on('EVENT_CLEAR_MODAL_DATA_CONNECT_VMS', () => {
             this.setState({
-                account: '',
+                server: '',
                 password: '',
-                confirmPassword: '',
+                username: '',
             });
         });
     }
@@ -52,7 +54,7 @@ class ModalCreateNewUser extends Component {
     };
     checkValidInput = () => {
         let isValid = true;
-        let arrInput = ['account', 'password', 'confirmPassword'];
+        let arrInput = ['server', 'username', 'password'];
         // console.log('check data arrInput: ', this.state);
         for (let i = 0; i < arrInput.length; i++) {
             if (!this.state[arrInput[i]]) {
@@ -61,16 +63,12 @@ class ModalCreateNewUser extends Component {
                 break;
             }
         }
-        if (this.state.password !== this.state.confirmPassword) {
-            isValid = false;
-            alert('Password not match!');
-        }
         return isValid;
     };
-    handleAddNewUser = () => {
+    handleConnectVMSServer = () => {
         let isValid = this.checkValidInput();
         if (isValid) {
-            this.props.createNewUserFromParent(this.state);
+            this.props.connectVMSServerFromParent(this.state);
             // console.log("check good state:", this.state);
         }
     };
@@ -92,22 +90,32 @@ class ModalCreateNewUser extends Component {
                         this.toggle();
                     }}
                 >
-                    Register
+                    Connect to VMS server
                 </ModalHeader>
                 <ModalBody>
                     <div className="modal-user-body">
-                        <div className="input-container-account">
-                            <label>Account</label>
+                        <div className="input-container-server">
+                            <label>Server</label>
                             <input
                                 type="text"
                                 onChange={(event) => {
-                                    this.handleOnChangeInput(event, 'account');
+                                    this.handleOnChangeInput(event, 'server');
                                 }}
-                                value={this.state.account}
+                                value={this.state.server}
                             />
                         </div>
                     </div>
                     <div className="modal-user-body">
+                        <div className="input-container">
+                            <label>Username</label>
+                            <input
+                                type="text"
+                                onChange={(event) => {
+                                    this.handleOnChangeInput(event, 'username');
+                                }}
+                                value={this.state.username}
+                            />
+                        </div>
                         <div className="input-container">
                             <label>Password</label>
                             <input
@@ -115,17 +123,7 @@ class ModalCreateNewUser extends Component {
                                 onChange={(event) => {
                                     this.handleOnChangeInput(event, 'password');
                                 }}
-                                value={this.state.password}
-                            />
-                        </div>
-                        <div className="input-container">
-                            <label>Confirm password</label>
-                            <input
-                                type="password"
-                                onChange={(event) => {
-                                    this.handleOnChangeInput(event, 'confirmPassword');
-                                }}
-                                value={this.state.confirmPassword}
+                                value={this.state.vmsPassword}
                             />
                         </div>
                     </div>
@@ -133,12 +131,12 @@ class ModalCreateNewUser extends Component {
                 <ModalFooter>
                     <Button
                         color="primary"
-                        className="px-3"
                         onClick={() => {
-                            this.handleAddNewUser();
+                            this.handleConnectVMSServer();
                         }}
+                        className="px-3"
                     >
-                        Add new
+                        Connect
                     </Button>{' '}
                     <Button
                         color="secondary"
@@ -163,4 +161,4 @@ const mapDispatchToProps = (dispatch) => {
     return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ModalCreateNewUser);
+export default connect(mapStateToProps, mapDispatchToProps)(ModalConnectVMSServer);
