@@ -7,6 +7,8 @@ import { emitter } from '../../utils/emitter';
 import { toast } from 'react-toastify';
 import { createListCameraFromServer } from '../../services/cameraService';
 import { LANGUAGES } from '../../utils/constant';
+// import { createRoot } from 'react-dom/client';
+
 let getViewsPromise = () => {
     return new Promise((resolve, reject) => {
         getAllViews(
@@ -28,12 +30,15 @@ class Views extends Component {
             arrCameras: [],
             dataServer: [],
             userInfo: [],
+            isConnect: false,
         };
     }
 
     componentDidMount() {}
     componentWillUnmount() {
-        disconnectVMS();
+        if (this.state.isConnect) {
+            disconnectVMS();
+        }
     }
     // Thêm hàm mới để trả về một Promise từ getAllViews
 
@@ -100,15 +105,30 @@ class Views extends Component {
                 'test',
                 'Ars@1234',
                 async () => {
+                    // Xoá toàn bộ dữu liệu vừa nhập của modal connect
                     emitter.emit('EVENT_CLEAR_MODAL_DATA_CONNECT_VMS');
-                    this.setState({
-                        isOpenModalConnectVMSServer: false,
-                    });
+
+                    // Đóng modal connect VMS server
+                    this.setState({});
+
+                    // Thông báo cho người dùng
                     console.log('Connect VMS successfully');
                     toast.success('Connect VMS successfully');
-                    this.setState({ dataServer, userInfo: this.props.userInfo });
+
+                    // Tạo dữ liệu truyền qua backend
+                    let userInfoFromStorage = JSON.parse(localStorage.getItem('userInfo'));
+                    this.setState({
+                        dataServer,
+                        userInfo: userInfoFromStorage,
+                        isOpenModalConnectVMSServer: false,
+                        isConnect: true,
+                    });
+
+                    // Lấy list camera từ VMS server
                     await this.getAllCameras();
                     console.log('Check arrCameras2: ', this.state);
+
+                    // Tạo bản ghi camera và server vào database
                     await this.createCameraAndServer(this.state);
                 },
                 () => {
@@ -120,9 +140,7 @@ class Views extends Component {
             console.log(e);
         }
     };
-
     render() {
-        // const { userInfo } = this.props;
         return (
             <div className="views-container">
                 <ModalConnectVMSServer
@@ -144,7 +162,6 @@ class Views extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        userInfo: state.user.userInfo,
         language: state.app.language,
     };
 };

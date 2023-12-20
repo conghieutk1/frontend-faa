@@ -4,6 +4,7 @@
             "menu": "Menu",
             "dashboard": "Dashboard",
             "views": "Views",
+            "manage-users": "Manage users",
             "manage-events": "Manage events",
             "user": "User"
         }

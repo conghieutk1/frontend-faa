@@ -65,10 +65,7 @@ class Login extends Component {
             isShowLoading: true,
         });
         try {
-            let data = await handleLoginApi(
-                this.state.username,
-                this.state.password
-            );
+            let data = await handleLoginApi(this.state.username, this.state.password);
             if (data && data.errCode !== 0) {
                 this.setState({
                     errMessage: data.message,
@@ -76,9 +73,10 @@ class Login extends Component {
                 });
             }
             if (data && data.errCode === 0) {
+                console.log('loging success', data.user);
                 this.props.userLoginSuccess(data.user);
                 // Lưu thông tin userInfo vào localStorage
-                //localStorage.setItem("userInfo", JSON.stringify(data.user));
+                localStorage.setItem('userInfo', JSON.stringify(data.user));
                 //Cookies.set("userInfo", data.user);
                 console.log('loging success');
             }
@@ -124,7 +122,7 @@ class Login extends Component {
                     isOpenModalCreateNewUser: false,
                 });
                 toast.success('Create user success');
-                
+
                 // truyen data
                 // emitter.emit("EVENT_CLEAR_MODAL_DATA", {id : 'abc'});
             }
@@ -134,11 +132,7 @@ class Login extends Component {
     };
     render() {
         return (
-            <LoadingOverlay
-                active={this.state.isShowLoading}
-                spinner
-                text="Loading	..."
-            >
+            <LoadingOverlay active={this.state.isShowLoading} spinner text="Loading	...">
                 <div className="login-background">
                     <div className="login-container">
                         <ModalCreateNewUser
@@ -147,9 +141,7 @@ class Login extends Component {
                             createNewUserFromParent={this.createNewUser}
                         />
                         <div className="login-content row">
-                            <div className="col-12 text-center login-title">
-                                Login
-                            </div>
+                            <div className="col-12 text-center login-title">Login</div>
                             <div className="col-12 form-group">
                                 <label>Username: </label>
                                 <input
@@ -157,32 +149,20 @@ class Login extends Component {
                                     className="form-control login-input"
                                     placeholder="Enter your user name"
                                     value={this.state.username}
-                                    onChange={(e) =>
-                                        this.handleOnChangeUserName(e)
-                                    }
+                                    onChange={(e) => this.handleOnChangeUserName(e)}
                                 />
                             </div>
                             <div className="col-12 form-group">
                                 <label>Password: </label>
                                 <div className="login-password">
                                     <input
-                                        type={
-                                            this.state.showPassword
-                                                ? 'text'
-                                                : 'password'
-                                        }
+                                        type={this.state.showPassword ? 'text' : 'password'}
                                         className="form-control login-input"
                                         placeholder="Enter your password"
                                         value={this.state.password}
-                                        onChange={(e) =>
-                                            this.handleOnChangePassword(e)
-                                        }
+                                        onChange={(e) => this.handleOnChangePassword(e)}
                                     />
-                                    <span
-                                        onClick={() =>
-                                            this.handleShowHidePassword()
-                                        }
-                                    >
+                                    <span onClick={() => this.handleShowHidePassword()}>
                                         <i
                                             className={
                                                 this.state.showPassword
@@ -197,18 +177,13 @@ class Login extends Component {
                                 {this.state.errMessage}
                             </div>
                             <div className="col-12">
-                                <button
-                                    className="btn-login"
-                                    onClick={() => this.handleLogin()}
-                                >
+                                <button className="btn-login" onClick={() => this.handleLogin()}>
                                     Login
                                 </button>
                             </div>
-                            
+
                             <div className="col-12">
-                                <span className="forgot-password">
-                                    Forgot your password?
-                                </span>
+                                <span className="forgot-password">Forgot your password?</span>
                             </div>
                             <div className="col-12 text-center login-with mt-3">
                                 <span className="">Or login with:</span>
@@ -236,8 +211,7 @@ const mapDispatchToProps = (dispatch) => {
         navigate: (path) => dispatch(push(path)),
 
         userLoginFail: () => dispatch(actions.userLoginFail()),
-        userLoginSuccess: (userInfo) =>
-            dispatch(actions.userLoginSuccess(userInfo)),
+        userLoginSuccess: (userInfo) => dispatch(actions.userLoginSuccess(userInfo)),
     };
 };
 

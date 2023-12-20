@@ -6,6 +6,7 @@ import Header from '../containers/Header/Header';
 import DashBoard from '../containers/System/DashBoard';
 import Views from '../containers/System/Views';
 import ManageEvents from '../containers/System/ManageEvents';
+import ManageUsers from '../containers/System/ManageUsers';
 class System extends Component {
     render() {
         const { systemMenuPath, isLoggedIn } = this.props;
@@ -16,18 +17,10 @@ class System extends Component {
                 <div className="system-container">
                     <div className="system-list">
                         <Switch>
-                            <Route
-                                path="/system/dashboard"
-                                component={DashBoard}
-                            />
-                            <Route
-                                path="/system/views"
-                                component={Views} />
-                            <Route
-                                path="/system/manage-events"
-                                component={ManageEvents}
-                            />
-
+                            <Route path="/system/dashboard" component={DashBoard} />
+                            <Route path="/system/views" component={Views} />
+                            <Route path="/system/manage-users" component={ManageUsers} />
+                            <Route path="/system/manage-events" component={ManageEvents} />
                             <Route
                                 component={() => {
                                     return <Redirect to={systemMenuPath} />;
