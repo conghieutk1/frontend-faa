@@ -122,8 +122,16 @@
             }
         }
     }
-
-    .modal-user-body {
+    .modal-connect-vms-table {
+        max-height: 225px;
+        overflow: hidden;
+    }
+    .modal-connect-vms-paging {
+        max-height: 30px;
+    }
+    .modal-user-body,
+    .modal-connect-vms-body,
+    .modal-connect-vms-table {
         display: flex;
         gap: 15px;
         .input-container-account {

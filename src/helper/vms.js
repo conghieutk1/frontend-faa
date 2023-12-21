@@ -25,7 +25,7 @@ export const promiseGetViews = (cameraId) => {
             },
             () => {
                 reject(null);
-            }
+            },
         );
     });
 };
@@ -62,13 +62,7 @@ export const connectVMS = (url, successCallback, errorCallback) => {
     });
 };
 
-export const loginVMSServer = (
-    url,
-    username,
-    password,
-    successCallback,
-    errorCallback
-) => {
+export const loginVMSServer = (url, username, password, successCallback, errorCallback) => {
     connectVMS(
         url,
         () => {
@@ -83,7 +77,7 @@ export const loginVMSServer = (
             window.XPMobileSDK.addObserver(lastObserver);
             loginXPMobileSDK(username, password);
         },
-        errorCallback
+        errorCallback,
     );
 };
 
@@ -94,4 +88,13 @@ export const disconnectVMS = () => {
 
 export const removeObserver = () => {
     window.XPMobileSDK.removeObserver(lastObserver);
+};
+
+var image = document.createElement('img');
+// image.addEventListener('load', onImageLoad);
+// image.addEventListener('error', onImageError);
+
+export const videoConnectionReceivedFrame = () => {
+    // let imageURL = window.URL.createObjectURL();
+    // image.src = imageURL;
 };

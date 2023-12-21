@@ -177,7 +177,7 @@ class AssignLabel extends Component {
                         this.toggle();
                     }}
                 >
-                    Connect to VMS server
+                    Assign label for objects
                 </ModalHeader>
                 <ModalBody>
                     <div className="modal-user-body">
@@ -265,7 +265,7 @@ class AssignLabel extends Component {
                         }}
                         className="px-3"
                     >
-                        Connect
+                        Save
                     </Button>
                     <Button
                         color="primary"

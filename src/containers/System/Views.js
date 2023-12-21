@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Views.scss';
-import { disconnectVMS, loginVMSServer, getAllViews } from '../../helper/vms';
+import { disconnectVMS, loginVMSServer, getAllViews, videoConnectionReceivedFrame } from '../../helper/vms';
 import ModalConnectVMSServer from './Modal/ModalConnectVMSServer';
 import { emitter } from '../../utils/emitter';
 import { toast } from 'react-toastify';
@@ -28,37 +28,46 @@ class Views extends Component {
         this.state = {
             isOpenModalConnectVMSServer: false,
             arrCameras: [],
+            arrAddedCameras: [],
             dataServer: [],
-            userInfo: [],
             isConnect: false,
         };
     }
 
     componentDidMount() {}
+
     componentWillUnmount() {
         if (this.state.isConnect) {
             disconnectVMS();
         }
     }
-    // Thêm hàm mới để trả về một Promise từ getAllViews
-
-    getAllCameras = async () => {
-        try {
-            let arrCameras = await getViewsPromise();
-            this.setState({ arrCameras });
-        } catch (error) {
-            console.log(error);
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevState.isOpenModalConnectVMSServer === true && this.state.isOpenModalConnectVMSServer === false) {
+            // Xoá toàn bộ dữu liệu vừa nhập của modal connect
+            emitter.emit('EVENT_CLEAR_MODAL_DATA_CONNECT_VMS');
         }
+    }
+    // Thêm hàm mới để trả về một Promise từ getAllViews
+    getAllCameras = async () => {
+        return new Promise(async (resolve, reject) => {
+            try {
+                let arrCameras = await getViewsPromise();
+                resolve(arrCameras);
+            } catch (error) {
+                console.log(error);
+                reject();
+            }
+        });
     };
     createCameraAndServer = async (data) => {
         try {
             let response = await createListCameraFromServer(data);
-            if (response && response.errCode !== 0) {
-                alert(response.errMessage);
+            console.log('response = ', response);
+            if (response) {
+                if (response.errMessage1 !== '') toast.success(response.errMessage1);
+                else if (response.errMessage2 !== '') toast.error(response.errMessage2);
             } else {
-                toast.success('Create camera and server successfully');
-                // truyen data
-                // emitter.emit("EVENT_CLEAR_MODAL_DATA", {id : 'abc'});
+                toast.success('Dont have response from backend');
             }
         } catch (e) {
             console.log(e);
@@ -75,84 +84,105 @@ class Views extends Component {
         });
     };
     connectVMSServer = async (dataServer) => {
+        return new Promise(async (resolve, reject) => {
+            try {
+                //     dataServer.server,
+                //     dataServer.username,
+                //     dataServer.password,
+                loginVMSServer(
+                    '117.0.39.150:38081',
+                    'test',
+                    'Ars@1234',
+                    async () => {
+                        // Thông báo cho người dùng
+                        console.log('Connect VMS successfully');
+                        toast.success('Connect VMS successfully');
+                        // Lấy list camera từ VMS server
+                        let arrCameras = await this.getAllCameras();
+                        this.setState(
+                            {
+                                arrCameras,
+                                dataServer,
+                                isConnect: true,
+                            },
+                            () => {
+                                resolve(this.state);
+                            },
+                        );
+                    },
+                    () => {
+                        console.log('Connect VMS failed');
+                        reject('Connect VMS failed');
+                        alert('Connect VMS failed');
+                    },
+                );
+            } catch (e) {
+                console.log(e);
+                reject(e);
+            }
+        });
+    };
+    saveDataIntoDB = async (selectedCheckboxes) => {
         try {
-            // console.log('check data register: ', data);  '117.0.39.150:38081', 'test', 'Ars@1234',
-
-            // loginVMSServer(
-            //     dataServer.url,
-            //     dataServer.username,
-            //     dataServer.password,
-            //     async () => {
-            //         emitter.emit('EVENT_CLEAR_MODAL_DATA_CONNECT_VMS');
-            //         this.setState({
-            //             isOpenModalConnectVMSServer: false,
-            //         });
-            //         console.log('Connect VMS successfully');
-            //         toast.success('Connect VMS successfully');
-            //         this.setState({ dataServer, userInfo: this.props.userInfo });
-            //         await this.getAllCameras();
-            //         console.log('Check arrCameras2: ', this.state);
-            //         // createCameraAndServer(this.state);
-            //     },
-            //     () => {
-            //         console.log('Connect VMS failed');
-            //         alert('Connect VMS failed');
-            //     },
-            // );
-
-            loginVMSServer(
-                '117.0.39.150:38081',
-                'test',
-                'Ars@1234',
-                async () => {
-                    // Xoá toàn bộ dữu liệu vừa nhập của modal connect
-                    emitter.emit('EVENT_CLEAR_MODAL_DATA_CONNECT_VMS');
-
-                    // Đóng modal connect VMS server
-                    this.setState({});
-
-                    // Thông báo cho người dùng
-                    console.log('Connect VMS successfully');
-                    toast.success('Connect VMS successfully');
-
-                    // Tạo dữ liệu truyền qua backend
-                    let userInfoFromStorage = JSON.parse(localStorage.getItem('userInfo'));
-                    this.setState({
-                        dataServer,
-                        userInfo: userInfoFromStorage,
-                        isOpenModalConnectVMSServer: false,
-                        isConnect: true,
-                    });
-
-                    // Lấy list camera từ VMS server
-                    await this.getAllCameras();
-                    console.log('Check arrCameras2: ', this.state);
-
-                    // Tạo bản ghi camera và server vào database
-                    await this.createCameraAndServer(this.state);
+            console.log('check data in selectedCheckboxes after send: ', selectedCheckboxes);
+            // Xoá toàn bộ dữu liệu vừa nhập của modal connect
+            // emitter.emit('EVENT_CLEAR_MODAL_DATA_CONNECT_VMS');
+            // Lưu dữ liệu với database
+            let userInfoFromStorage = JSON.parse(localStorage.getItem('userInfo'));
+            // let filteredCameras = arrCameras.filter((item) => selectedCheckboxes.has(item.Id));
+            await this.setState({
+                arrAddedCameras: this.state.arrCameras.filter((item) => selectedCheckboxes.has(item.Id)),
+            });
+            let data = {
+                userInfoFromStorage,
+                arrAddedCameras: this.state.arrAddedCameras,
+                dataServer: {
+                    server: this.state.dataServer.server,
+                    username: this.state.dataServer.username,
+                    password: this.state.dataServer.password,
                 },
-                () => {
-                    console.log('Connect VMS failed');
-                    alert('Connect VMS failed');
-                },
-            );
+            };
+            // Tạo bản ghi camera và server vào database
+            console.log('Check state in saveDataIntoDB: ', data);
+            await this.createCameraAndServer(data);
         } catch (e) {
             console.log(e);
         }
     };
+
+    getImage = async () => {
+        return new Promise(async (resolve, reject) => {
+            try {
+                let image = await videoConnectionReceivedFrame();
+
+                console.log('image ', image);
+                resolve('OK');
+            } catch (error) {
+                console.log(error);
+                reject();
+            }
+        });
+    };
+
     render() {
+        // console.log('Check state in views page: ', this.state);
         return (
             <div className="views-container">
                 <ModalConnectVMSServer
                     isOpen={this.state.isOpenModalConnectVMSServer}
                     toggleFromParent={this.toggleUserModal}
                     connectVMSServerFromParent={this.connectVMSServer}
+                    saveDataIntoDBFromParent={this.saveDataIntoDB}
                 />
                 <div className="title">VIEWS</div>
                 <div className="mx-1">
                     <button className="btn btn-primary px-3 connectVMS" onClick={() => this.handleConnectVMSServer()}>
                         <i className="fas fa-plus px-2"></i>
                         Connect VMS Server
+                    </button>
+                    <button className="btn btn-primary px-3 connectVMS" onClick={() => this.getImage()}>
+                        <i className="fas fa-plus px-2"></i>
+                        Get image
                     </button>
                 </div>
             </div>
