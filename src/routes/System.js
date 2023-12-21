@@ -5,6 +5,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import Header from '../containers/Header/Header';
 import DashBoard from '../containers/System/DashBoard';
 import Views from '../containers/System/Views';
+import Liveviews from '../containers/System/Liveviews';
 import ManageEvents from '../containers/System/ManageEvents';
 import ManageUsers from '../containers/System/ManageUsers';
 class System extends Component {
@@ -19,6 +20,7 @@ class System extends Component {
                         <Switch>
                             <Route path="/system/dashboard" component={DashBoard} />
                             <Route path="/system/views" component={Views} />
+                            <Route path="/system/liveviews" component={Liveviews} />
                             <Route path="/system/manage-users" component={ManageUsers} />
                             <Route path="/system/manage-events" component={ManageEvents} />
                             <Route

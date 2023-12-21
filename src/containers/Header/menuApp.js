@@ -11,6 +11,10 @@ export const adminMenu = [
                 link: '/system/views',
             },
             {
+                name: 'menu.admin.liveviews',
+                link: '/system/liveviews',
+            },
+            {
                 name: 'menu.admin.manage-users',
                 link: '/system/manage-users',
             },
@@ -33,6 +37,10 @@ export const userMenu = [
             {
                 name: 'menu.admin.views',
                 link: '/system/views',
+            },
+            {
+                name: 'menu.admin.liveviews',
+                link: '/system/liveviews',
             },
             {
                 name: 'menu.admin.manage-events',
